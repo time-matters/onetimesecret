@@ -36,7 +36,10 @@ spec:
             - name: REDIS_URL
               value: redis://ots-redis-service-v1:6379/0
             - name: SECRET
-              value: f22f76a8874bd186a7a66c79e7554872e0b6526e0f0a1eeaab09325078e5a037
+              valueFrom:
+                secretKeyRef:
+                  name: ots-secret
+                  key: secret-key
           ports:
             - containerPort: 3000
 ---
